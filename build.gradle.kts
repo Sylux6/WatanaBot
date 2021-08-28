@@ -1,26 +1,26 @@
 val atriumVersion = "0.16.0"
 val azurapiVersion = "3.1.4"
-val exposedVersion = "0.31.1"
+val exposedVersion = "0.33.1"
 val harmonicaVersion = "1.1.26"
 val imageboardVersion = "2.4.5"
 val javaStringSimilarityVersion = "2.0.0"
 val jdaNasVersion = "1.1.0"
-val jdaVersion = "4.2.1_265"
+val jdaVersion = "4.3.0_310"
 val jdaReactorVersion = "1.2.0"
 val jsonVersion = "20210307"
 val konfigVersion = "1.6.10.0"
-val kotlinLoggingVersion = "2.0.6"
-val kotlinVersion = "1.4.30"
-val kotlinxSerializationVersion = "1.1.0"
-val kotlinxVersion = "1.3.9"
-val lavaplayerVersion = "1.3.77"
-val logbackVersion = "1.2.3"
-val mockkVersion = "1.11.0"
-val postgresqlVersion = "42.2.20"
+val kotlinLoggingVersion = "2.0.11"
+val kotlinVersion = "1.5.30"
+val kotlinxSerializationVersion = "1.2.2"
+val kotlinxVersion = "1.5.1-native-mt"
+val lavaplayerVersion = "1.3.78"
+val logbackVersion = "1.2.5"
+val mockkVersion = "1.12.0"
+val postgresqlVersion = "42.2.23.jre7"
 val quartzVersion = "2.3.2"
 val reflectionsVersion = "0.9.12"
-val sentryVersion = "4.3.0"
-val spekVersion = "2.0.15"
+val sentryVersion = "5.1.2"
+val spekVersion = "2.0.17"
 
 buildscript {
     repositories {
@@ -28,7 +28,7 @@ buildscript {
         maven("https://jitpack.io")
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-script-util:1.4.30")
+        classpath("org.jetbrains.kotlin:kotlin-script-util:1.5.30")
         classpath("com.github.KenjiOhtsuka:harmonica:1.1.26")
         classpath("com.github.cesarferreira:kotlin-pluralizer:1.0.0")
     }
@@ -40,8 +40,8 @@ plugins {
     application
     java
     `maven-publish`
-    kotlin("jvm") version "1.4.30"
-    kotlin("plugin.serialization") version "1.4.30"
+    kotlin("jvm") version "1.5.30"
+    kotlin("plugin.serialization") version "1.5.30"
     id("com.github.johnrengelman.shadow") version "6.1.0"
     id("org.jmailen.kotlinter") version "3.4.0"
 }
@@ -63,7 +63,6 @@ repositories {
 
 dependencies {
     // Core
-    implementation(kotlin("stdlib-jdk8"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$kotlinxSerializationVersion")
