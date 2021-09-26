@@ -5,7 +5,6 @@ import com.github.sylux6.watanabot.scheduler.jobs.TerminatePoll
 import com.github.sylux6.watanabot.scheduler.scheduler
 import com.github.sylux6.watanabot.utils.deserializeListOfStrings
 import com.github.sylux6.watanabot.utils.jdaInstance
-import com.github.sylux6.watanabot.utils.mentionAt
 import com.github.sylux6.watanabot.utils.sendDM
 import com.github.sylux6.watanabot.utils.sendMessage
 import com.github.sylux6.watanabot.utils.serializeListOfStrings
@@ -94,7 +93,7 @@ fun sendPollMessage(
     options: List<String>,
     multipleChoices: Boolean
 ) {
-    event.channel.sendMessage(message).queue() { sentMessage ->
+    event.channel.sendMessageEmbeds(message).queue { sentMessage ->
         val poll = savePoll(
             Poll(
                 event.member!!,
@@ -171,7 +170,7 @@ fun refreshPoll(poll: Poll) {
                 false
             )
         }
-        poll.message.editMessage(embedPoll.build()).queue()
+        poll.message.editMessageEmbeds(embedPoll.build()).queue()
     }
 }
 
@@ -231,7 +230,7 @@ suspend fun initPollsFromDb() {
                                         scheduler.scheduleJob(JobBuilder.newJob(TerminatePoll::class.java).build(), trigger)
                                     }
                                 },
-                                { _ ->
+                                {
                                     removePollFromDatabase(row[Polls.guildId], row[Polls.channelId], row[Polls.messageId])
                                 }
                             )
@@ -288,7 +287,6 @@ fun closePoll(poll: Poll) {
     CompletableFuture.allOf(*completableFutures.toTypedArray()).get()
     emoteToIndex.keys.forEach { emote -> poll.message.removeReaction(emote, jdaInstance.selfUser).queue() }
     poll.message.clearReactions(closeEmote).queue()
-    val mentions = mutableSetOf(poll.author.user)
     val result = EmbedBuilder()
         .setAuthor(poll.message.guild.name, null, poll.message.guild.iconUrl)
         .setTitle("Poll results", poll.message.jumpUrl)
@@ -300,7 +298,6 @@ fun closePoll(poll: Poll) {
             "${indexToEmote[index + 1]} $option (**${votes[indexToEmote[index + 1]]?.size ?: 0}**)",
             votes[indexToEmote[index + 1]]?.joinToString("\n") { member ->
                 run {
-                    mentions.add(member.user)
                     member.effectiveName
                 }
             }
@@ -308,11 +305,7 @@ fun closePoll(poll: Poll) {
             false
         )
     }
-    // Remove bot from mentions
-    mentions.remove(jdaInstance.selfUser)
     val message = MessageBuilder(result)
-        .append("\n\n")
-        .append(mentionAt(mentions))
     sendMessage(poll.message.channel, message.build())
     sendDM(poll.author.user, result.build())
 }
