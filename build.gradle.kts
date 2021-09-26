@@ -1,26 +1,26 @@
 val atriumVersion = "0.16.0"
 val azurapiVersion = "3.1.4"
-val exposedVersion = "0.31.1"
+val exposedVersion = "0.34.2"
 val harmonicaVersion = "1.1.26"
 val imageboardVersion = "2.4.5"
 val javaStringSimilarityVersion = "2.0.0"
 val jdaNasVersion = "1.1.0"
-val jdaVersion = "4.2.1_265"
+val jdaVersion = "4.3.0_331"
 val jdaReactorVersion = "1.2.0"
 val jsonVersion = "20210307"
 val konfigVersion = "1.6.10.0"
-val kotlinLoggingVersion = "2.0.6"
-val kotlinVersion = "1.4.30"
-val kotlinxSerializationVersion = "1.1.0"
-val kotlinxVersion = "1.3.9"
-val lavaplayerVersion = "1.3.77"
-val logbackVersion = "1.2.3"
-val mockkVersion = "1.11.0"
-val postgresqlVersion = "42.2.20"
+val kotlinLoggingVersion = "2.0.11"
+val kotlinVersion = "1.5.21"
+val kotlinxSerializationVersion = "1.3.0"
+val kotlinxVersion = "1.5.2-native-mt"
+val lavaplayerVersion = "1.3.78"
+val logbackVersion = "1.2.6"
+val mockkVersion = "1.12.0"
+val postgresqlVersion = "42.2.23.jre7"
 val quartzVersion = "2.3.2"
 val reflectionsVersion = "0.9.12"
 val sentryVersion = "4.3.0"
-val spekVersion = "2.0.15"
+val spekVersion = "2.0.17"
 
 buildscript {
     repositories {
@@ -63,7 +63,6 @@ repositories {
 
 dependencies {
     // Core
-    implementation(kotlin("stdlib-jdk8"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$kotlinxSerializationVersion")
