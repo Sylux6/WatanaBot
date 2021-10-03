@@ -1,6 +1,7 @@
 package com.github.sylux6.watanabot.core
 
 import com.github.sylux6.watanabot.internal.commands.AbstractCommandModule
+import com.github.sylux6.watanabot.modules.anime_quote.AnimeQuoteCommandModule
 import com.github.sylux6.watanabot.modules.azur_lane.AzurLaneCommandModule
 import com.github.sylux6.watanabot.modules.birthday.BirthdayCommandModule
 import com.github.sylux6.watanabot.modules.love_live.LoveLiveCommandModule
@@ -20,7 +21,8 @@ object CommandHandler {
         PictureCommandModule,
         LoveLiveCommandModule,
         MusicCommandModule,
-        PollCommandModule
+        PollCommandModule,
+        AnimeQuoteCommandModule
     )
 
     init {

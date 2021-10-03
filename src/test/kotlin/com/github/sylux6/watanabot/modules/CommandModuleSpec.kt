@@ -9,6 +9,8 @@ import ch.tutteli.atrium.api.fluent.en_GB.values
 import ch.tutteli.atrium.api.verbs.expect
 import com.github.sylux6.watanabot.core.CommandHandler.COMMAND_MODULES
 import com.github.sylux6.watanabot.core.CommandHandler.COMMAND_MODULE_MAP
+import com.github.sylux6.watanabot.modules.anime_quote.AnimeQuoteCommandModule
+import com.github.sylux6.watanabot.modules.anime_quote.commands.AnimeQuoteQuoteCommand
 import com.github.sylux6.watanabot.modules.azur_lane.AzurLaneCommandModule
 import com.github.sylux6.watanabot.modules.azur_lane.commands.AzurLaneChibiCommand
 import com.github.sylux6.watanabot.modules.azur_lane.commands.AzurLaneInfoCommand
@@ -64,7 +66,7 @@ import com.github.sylux6.watanabot.modules.picture.PictureCommandModule
 import com.github.sylux6.watanabot.modules.picture.commands.PictureNsfwCommand
 import com.github.sylux6.watanabot.modules.picture.commands.PictureSafeCommand
 import com.github.sylux6.watanabot.modules.poll.PollCommandModule
-import com.github.sylux6.watanabot.modules.poll.commands.PollNew
+import com.github.sylux6.watanabot.modules.poll.commands.PollNewCommand
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
@@ -79,21 +81,22 @@ object CommandModuleSpec : Spek({
         }
 
         it("should define all modules") {
-            expect(COMMAND_MODULES.size).toBe(6)
+            expect(COMMAND_MODULES.size).toBe(7)
             expect(COMMAND_MODULES).contains.inAnyOrder.only.values(
                 AzurLaneCommandModule,
                 BirthdayCommandModule,
                 PictureCommandModule,
                 LoveLiveCommandModule,
                 MusicCommandModule,
-                PollCommandModule
+                PollCommandModule,
+                AnimeQuoteCommandModule
             )
         }
 
         it("should define all commands") {
             val commandList = COMMAND_MODULES.flatMap { it.commandMap.values } + GeneralCommandModule.commandMap.values
             // 1 extra command for each module because documentation counts as a command
-            expect(commandList.size).toBe(56)
+            expect(commandList.size).toBe(58)
             expect(commandList).contains(
                 AzurLaneChibiCommand,
                 AzurLaneInfoCommand,
@@ -143,7 +146,8 @@ object CommandModuleSpec : Spek({
                 MusicStopCommand,
                 PictureNsfwCommand,
                 PictureSafeCommand,
-                PollNew
+                PollNewCommand,
+                AnimeQuoteQuoteCommand
             )
         }
     }

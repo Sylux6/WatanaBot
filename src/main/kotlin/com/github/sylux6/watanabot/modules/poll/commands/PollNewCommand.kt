@@ -8,7 +8,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import org.joda.time.DateTime
 import java.awt.Color
 
-object PollNew : AbstractCommand("new", 1) {
+object PollNewCommand : AbstractCommand("new", 1) {
     override val template: String
         get() = "[--m] [--<duration>] <topic> | <option 1> | <option 2> [ | <option 3> ... ]"
     override val description: String
