@@ -2,7 +2,7 @@ val atriumVersion = "0.16.0"
 val azurapiVersion = "3.1.4"
 val exposedVersion = "0.34.2"
 val harmonicaVersion = "1.1.26"
-val imageboardVersion = "2.4.5"
+val imageboardVersion = "f3cb7f80b3"
 val javaStringSimilarityVersion = "2.0.0"
 val jdaNasVersion = "1.1.0"
 val jdaVersion = "4.3.0_331"
@@ -101,7 +101,7 @@ dependencies {
     implementation("com.natpryce:konfig:$konfigVersion")
 
     // API
-    implementation("net.kodehawa:imageboard-api:$imageboardVersion")
+    implementation("com.github.Kodehawa:imageboard-api:$imageboardVersion")
     implementation("com.github.AzurAPI:AzurApi-Kotlin:$azurapiVersion")
 
     // Test

@@ -1,4 +1,4 @@
-package com.github.sylux6.watanabot.modules.love_live.utils
+package com.github.sylux6.watanabot.modules.love_live.api
 
 import com.github.sylux6.watanabot.modules.love_live.LoveLiveCommandModule
 import com.github.sylux6.watanabot.modules.love_live.entities.Card

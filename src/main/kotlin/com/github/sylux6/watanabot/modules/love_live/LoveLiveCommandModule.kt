@@ -21,6 +21,6 @@ object LoveLiveCommandModule : AbstractCommandModule(
     override val moduleDescription: String
         get() = "Commands related to Love Live!"
 
-    const val CARD_API_URL = "https://schoolido.lu/api/cards/"
-    const val CARD_ID_API_URL = "http://schoolido.lu/api/cardids/"
+    const val CARD_API_URL = "https://schoolido.lu/api/cards"
+    const val CARD_ID_API_URL = "http://schoolido.lu/api/cardids"
 }
