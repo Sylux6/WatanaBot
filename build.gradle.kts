@@ -1,26 +1,26 @@
-val atriumVersion = "0.17.0"
+val atriumVersion = "0.18.0"
 val azurapiVersion = "3.1.4"
-val exposedVersion = "0.36.1"
+val exposedVersion = "0.38.2"
 val harmonicaVersion = "1.1.26"
 val imageboardVersion = "f3cb7f80b3"
 val javaStringSimilarityVersion = "2.0.0"
 val jdaNasVersion = "1.1.0"
 val jdaVersion = "4.4.0_350"
 val jdaReactorVersion = "1.2.0"
-val jsonVersion = "20210307"
+val jsonVersion = "20220320"
 val konfigVersion = "1.6.10.0"
-val kotlinLoggingVersion = "2.0.11"
-val kotlinVersion = "1.6.0"
-val kotlinxSerializationVersion = "1.3.1"
-val kotlinxVersion = "1.5.2-native-mt"
+val kotlinLoggingVersion = "2.1.21"
+val kotlinVersion = "1.6.21"
+val kotlinxSerializationVersion = "1.3.2"
+val kotlinxVersion = "1.6.1-native-mt"
 val lavaplayerVersion = "1.3.78"
-val logbackVersion = "1.2.7"
-val mockkVersion = "1.12.0"
-val postgresqlVersion = "42.3.1"
+val logbackVersion = "1.2.11"
+val mockkVersion = "1.12.3"
+val postgresqlVersion = "42.3.4"
 val quartzVersion = "2.3.2"
 val reflectionsVersion = "0.10.2"
-val sentryVersion = "5.4.0"
-val spekVersion = "2.0.17"
+val sentryVersion = "5.7.3"
+val spekVersion = "2.0.18"
 
 buildscript {
     repositories {
@@ -28,6 +28,7 @@ buildscript {
         maven("https://jitpack.io")
     }
     dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21")
         classpath("org.jetbrains.kotlin:kotlin-script-util:1.4.30")
         classpath("com.github.KenjiOhtsuka:harmonica:1.1.26")
         classpath("com.github.cesarferreira:kotlin-pluralizer:1.0.0")
