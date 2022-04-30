@@ -20,6 +20,7 @@ import net.dv8tion.jda.api.entities.Activity
 import net.dv8tion.jda.api.requests.GatewayIntent
 import net.dv8tion.jda.api.utils.MemberCachePolicy
 import net.dv8tion.jda.api.utils.cache.CacheFlag
+import net.kodehawa.lib.imageboards.ImageBoard
 
 object Main {
 
@@ -33,6 +34,8 @@ object Main {
         QuartzScheduler.run()
         // Database connection
         connectToDatabase()
+        // Set User Agent for ImageBoard API
+        ImageBoard.setUserAgent("watanabot")
         // Building bot
         initReactiveEventManager()
         jdaInstance = JDABuilder.createDefault(getToken())
